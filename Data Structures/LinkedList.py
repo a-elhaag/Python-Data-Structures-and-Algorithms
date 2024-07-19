@@ -62,7 +62,7 @@ class LinkedList:
         if self.head is None:
             return None
 
-        temp = self.head
+        temp: Node = self.head
         self.head = self.head.next
         temp.next = None
         self.length -= 1
@@ -116,16 +116,15 @@ class LinkedList:
         temp.next = None
         self.length -= 1
         return temp.data
-    
-    
+
     def reverse(self):
         if self.length == 1:
             return
-        first=self.head
-        self.tail=self.head
-        second=first.next
+        first = self.head
+        self.tail = self.head
+        second = first.next
         while second:
-            temp=second.next
-            second.next=first
-            first=second
-            second=temp
+            temp = second.next
+            second.next = first
+            first = second
+            second = temp
