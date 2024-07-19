@@ -38,22 +38,6 @@ python Data_Structures/linked_list.py
 python Algorithms/sorting.py
 ```
 
-### 🎉 Fun with Links
-
-Dive into the exciting world of data structures and algorithms:
-
-- **Data Structures**
-  - [Linked List](./Data_Structures/linked_list.py) 🧶
-  - [Stack](./Data_Structures/stack.py) 📚
-  - [Queue](./Data_Structures/queue.py) 🚶‍♂️🚶‍♀️
-  - [Binary Tree](./Data_Structures/binary_tree.py) 🌳
-
-- **Algorithms**
-  - [Sorting](./Algorithms/sorting.py) 🍰
-  - [Searching](./Algorithms/searching.py) 🔍
-  - [Dynamic Programming](./Algorithms/dynamic_programming.py) 🧩
-  - [Graph Algorithms](./Algorithms/graph_algorithms.py) 🗺️
-
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
