@@ -41,3 +41,63 @@ class BinarySearchTree:
             else:
                 current = current.right
         return False
+
+    def _r_contains(self, node, value):
+        if node is None:
+            return False
+        if value == node.value:
+            return True
+        if value < node.value:
+            return self._r_contains(node.left, value)
+        return self._r_contains(node.right, value)
+
+    def r_contains(self, value):
+        return self._r_contains(self.root, value)
+
+    def _r_insert(self, node, value):
+        if node is None:
+            return Node(value)
+        if value < node.value:
+            node.left = self._r_insert(node.left, value)
+        elif value > node.value:
+            node.right = self._r_insert(node.right, value)
+        return node
+
+    def r_insert(self, value):
+        self.root = self._r_insert(self.root, value)
+        return True
+
+    def min_value(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current.value
+
+    def _delete_node(self, node, value):
+        current_node = node
+        if current_node is None:
+            return False
+
+        if value < current_node.value:
+            current_node.left = self._delete_node(current_node.left, value)
+
+        elif value > current_node.value:
+            current_node.right = self._delete_node(current_node.right, value)
+
+        else:
+            if current_node.left is None and current_node.right is None:
+                return None
+            if current_node.left is None:
+                return current_node.right
+            if current_node.right is None:
+                return current_node.left
+
+            else:
+                min_value = self.min_value(current_node.right)
+                current_node.value = min_value
+                current_node.right = self._delete_node(current_node.right, min_value)
+
+        return current_node
+
+    def delete_node(self, value):
+        self.root = self._delete_node(self.root, value)
