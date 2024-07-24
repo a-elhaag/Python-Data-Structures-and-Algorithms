@@ -101,3 +101,56 @@ class BinarySearchTree:
 
     def delete_node(self, value):
         self.root = self._delete_node(self.root, value)
+
+    def BFS(self):  # Breadth First Search
+        current_node = self.root
+        queue = []
+        results = []
+        queue.append(current_node)
+        while queue:
+            current_node = queue.pop(0)
+            results.append(current_node.value)
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+        return results
+
+    def dfs_pre_order(self):
+        results = []
+
+        def traverse(current_node):
+            results.append(current_node.value)
+            if current_node.left:
+                traverse(current_node.left)
+            if current_node.right:
+                traverse(current_node.right)
+
+        traverse(self.root)
+        return results
+
+    def dfs_post_order(self):
+        results = []
+
+        def traverse(current_node):
+            if current_node.left:
+                traverse(current_node.left)
+            if current_node.right:
+                traverse(current_node.right)
+            results.append(current_node.value)
+
+        traverse(self.root)
+        return results
+
+    def dfs_in_order(self):
+        results = []
+
+        def traverse(current_node):
+            if current_node.left:
+                traverse(current_node.left)
+            results.append(current_node.value)
+            if current_node.right:
+                traverse(current_node.right)
+
+        traverse(self.root)
+        return results
