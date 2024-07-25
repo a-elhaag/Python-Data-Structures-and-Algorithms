@@ -1,4 +1,5 @@
 class Merge:
+    @staticmethod
     def merge(list_1, list_2):
         combined = []
         i = j = 0
@@ -13,13 +14,13 @@ class Merge:
         combined += list_2[j:]
         return combined
 
-
+    @staticmethod
     def merge_sort(my_list):
         if len(my_list) <= 1:
             return my_list
 
         mid_index = len(my_list) // 2
-        left = merge_sort(my_list[:mid_index])
-        right = merge_sort(my_list[mid_index:])
+        left = Merge.merge_sort(my_list[:mid_index])
+        right = Merge.merge_sort(my_list[mid_index:])
 
-        return merge(left, right)
+        return Merge.merge(left, right)
