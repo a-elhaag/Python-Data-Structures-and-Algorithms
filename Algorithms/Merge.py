@@ -24,3 +24,5 @@ class Merge:
         right = Merge.merge_sort(my_list[mid_index:])
 
         return Merge.merge(left, right)
+
+
